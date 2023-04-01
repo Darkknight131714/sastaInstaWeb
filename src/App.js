@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import loader from './assets/loader.gif'
 class App extends React.Component {
 
 	// Constructor
@@ -27,20 +28,20 @@ class App extends React.Component {
 	}
 	render() {
 		const { DataisLoaded, items } = this.state;
-		if (!DataisLoaded) return <div>
-			<h1> Sasta Insta loading.... </h1> </div> ;
+		if (!DataisLoaded) return <div className="LoaderPage">
+			<img src={loader} style={{}} className="Loader" alt=""/> </div> ;
 
 		return (
 		<div className = "App">
 			<h1> Sasta Insta </h1>
       {
 				items.map((item) => (
-          <div style={{height:600, width:600, border:5,borderColor:"black",borderStyle:"solid", marginTop:10, marginLeft:"auto", marginRight:"auto"}}>
+          <div className="itemBox">
 			<div  style={{padding:4}}>
-			<img style={{height:50, width:50, borderRadius:"50%", float:"left", padding:7}} src={item.profile}/>
+			<img style={{height:50, width:50, borderRadius:"50%", float:"left", padding:7}} src={item.profile} alt=""/>
             <h2>{item.name}</h2>
 			</div>
-            <img style={{maxHeight:500, maxWidth:500}} src={item.url} />
+            <img style={{maxHeight:500, maxWidth:500}} src={item.url} alt=""/>
           </div>
         ))
       }
