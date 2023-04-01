@@ -1,6 +1,10 @@
 import React from "react";
 import './App.css';
 import loader from './assets/loader.gif'
+import heart from './assets/heart.png'
+import comment from './assets/comment.png'
+// import Comment from './components/comment'
+
 class App extends React.Component {
 
 	// Constructor
@@ -41,7 +45,14 @@ class App extends React.Component {
 			<img style={{height:50, width:50, borderRadius:"50%", float:"left", padding:7}} src={item.profile} alt=""/>
             <h2>{item.name}</h2>
 			</div>
+			<div style={{height:500}}>
             <img style={{maxHeight:500, maxWidth:500}} src={item.url} alt=""/>
+			</div>
+			<div className="reaction">
+				<img src={heart} alt="" style={{height:24, width:24, marginRight:10}}/><span>{item.likedby.length}</span>
+				<img src={comment} alt="" style={{height:24, width:24, marginLeft:10, marginRight:10}}/><span>{item.comment.length}</span>
+			</div>
+			{/* <Comment/> */}
           </div>
         ))
       }
