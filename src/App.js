@@ -28,24 +28,23 @@ class App extends React.Component {
 	render() {
 		const { DataisLoaded, items } = this.state;
 		if (!DataisLoaded) return <div>
-			<h1> Pleses wait some time.... </h1> </div> ;
+			<h1> Sasta Insta loading.... </h1> </div> ;
 
 		return (
 		<div className = "App">
-			<h1> Fetch data from an api in react </h1>
+			<h1> Sasta Insta </h1>
       {
 				items.map((item) => (
-          <>
-            <ol key={item.id}>
-              <li> User_Name: {item.name}</li>
-              <li>User_Email: {item.email}</li>
-
-            </ol>
-            <img src={item.url} />
-          </>
+          <div style={{height:600, width:600, border:5,borderColor:"black",borderStyle:"solid", marginTop:10, marginLeft:"auto", marginRight:"auto"}}>
+			<div  style={{padding:4}}>
+			<img style={{height:50, width:50, borderRadius:"50%", float:"left", padding:7}} src={item.profile}/>
+            <h2>{item.name}</h2>
+			</div>
+            <img style={{maxHeight:500, maxWidth:500}} src={item.url} />
+          </div>
         ))
       }
-    </div>
+	  </div>
 	);
 }
 }
