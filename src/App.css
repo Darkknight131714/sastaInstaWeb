@@ -21,6 +21,14 @@
 .App-link {
 	color: #61dafb;
 }
+
+.title{
+	position: fixed;
+  	top: 50px;
+  	left: 10px;
+
+}
+
 .LoaderPage{
 	display: flex;
 	align-items: center;

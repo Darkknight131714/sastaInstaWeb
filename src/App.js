@@ -3,7 +3,8 @@ import './App.css';
 import loader from './assets/loader.gif'
 import heart from './assets/heart.png'
 import comment from './assets/comment.png'
-// import Comment from './components/comment'
+import Comment from './components/comment'
+import title from './assets/title.svg'
 
 class App extends React.Component {
 
@@ -36,8 +37,10 @@ class App extends React.Component {
 			<img src={loader} style={{}} className="Loader" alt=""/> </div> ;
 
 		return (
-		<div className = "App">
-			<h1> Sasta Insta </h1>
+		<div className = "App" style={{paddingTop:50}}>
+			<div>
+			<img src={title} className="title" alt=""/>
+		</div>
       {
 				items.map((item) => (
           <div className="itemBox">
@@ -50,9 +53,10 @@ class App extends React.Component {
 			</div>
 			<div className="reaction">
 				<img src={heart} alt="" style={{height:24, width:24, marginRight:10}}/><span>{item.likedby.length}</span>
-				<img src={comment} alt="" style={{height:24, width:24, marginLeft:10, marginRight:10}}/><span>{item.comment.length}</span>
+				<Comment/><span>{item.comment.length}</span>
+				
 			</div>
-			{/* <Comment/> */}
+			
           </div>
         ))
       }
