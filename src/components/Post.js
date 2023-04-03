@@ -18,7 +18,24 @@ import { Button } from "@chakra-ui/react";
 const Post = ({item}) => {
     const { isOpen: isLikeOpen , onOpen: onLikeOpen, onClose: onLikeClose } = useDisclosure()
     const { isOpen: isCommentOpen , onOpen: onCommentOpen, onClose: onCommentClose } = useDisclosure()
-
+    
+    const [commentDetails,setCommentDetails]=useState([]);
+    const mapCommentDetails=()=>{
+        var tempCommentDetails = [...commentDetails];
+        for(var i = 0 ; i < item?.comment?.length ; i++) {
+            const newComment = (item?.commentuser[i] + ': ' + item?.comment[i]);
+            if(!tempCommentDetails.includes(newComment))
+            tempCommentDetails = [...tempCommentDetails, (item?.commentuser[i] + ': ' + item?.comment[i])]
+        }
+        setCommentDetails([...tempCommentDetails])
+    } 
+    useEffect(() => {
+      mapCommentDetails();
+    }, [])
+    useEffect(()=>{
+        console.log(commentDetails);
+    }, [commentDetails])
+    
 
     return (
         <div className="itemBox">
@@ -26,7 +43,7 @@ const Post = ({item}) => {
                 <img style={{height:50, width:50, borderRadius:"50%", float:"left", marginLeft:"2vh", marginTop:"1.5vh"}} src={item?.profile} alt=""/>
                 <h1 style={{marginTop:"1.8vh", fontSize:"3vh"}}>{item?.name}</h1>
             </div>
-            <div style={{height:500}}>
+            <div>
                 <img style={{maxHeight:500, maxWidth:500, marginTop:"4vh", marginLeft:"auto",marginRight:"auto"}} src={item?.url} alt=""/>
             </div>
             <div className="reaction">
@@ -75,12 +92,9 @@ const Post = ({item}) => {
                 <ModalCloseButton color={"white"} />
                 <ModalBody color={"white"} style={{ fontSize: "1.5rem" }}>
                 {
-                    item?.comment?.map((comm) => {
-                        {/* console.log(comm) */}
+                    commentDetails?.map((el)=>{
                         return(
-                            <div>
-                            <h2>{comm}</h2>
-                            </div>
+                        <h1>{el}</h1>
                         )
                     })
                 }
