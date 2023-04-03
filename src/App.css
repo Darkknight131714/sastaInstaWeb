@@ -1,8 +1,7 @@
-.App {
+.Home {
 	text-align: center;
 	color: White;
 	background: linear-gradient(to right, #c33764, #1d2671);
-	margin-top: -22px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -24,9 +23,9 @@
 
 .title{
 	position: fixed;
-  	top: 50px;
-  	left: 10px;
-
+  	top: 13vh;
+  	left: 10vh;
+	height: 50%;
 }
 
 .LoaderPage{
@@ -45,7 +44,7 @@
 	width:600px;
 	border:5px;
 	border-radius:1%;
-	margin-top:13px;
+	margin-top:4vh;
 	background-color:rgba(255, 255, 255, 0.1);
 }
 
@@ -55,12 +54,4 @@
 	align-items: left;
 	margin-top:20px;
 	margin-left: 50px;
-}
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
 }
